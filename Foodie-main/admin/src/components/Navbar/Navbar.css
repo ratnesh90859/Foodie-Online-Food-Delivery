@@ -1,0 +1,18 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Add some padding if needed */
+    background-color: #f8f8f8; /* Example background color */
+}
+
+.logo {
+    width: 70px; /* Set the desired width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.profile {
+    width: 50px; /* Set the desired width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Make it circular if you want a profile look */
+}

@@ -1,0 +1,66 @@
+.explore-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.explore-menu h1 {
+    color: black;
+    font-weight: 500;
+}
+
+.explore-menu-text {
+    max-width: 60%;
+    color: gray; /* Corrected from columns to color */
+}
+
+.explore-menu-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; /* Corrected from align-item to align-items */
+    margin: 20px 0; /* Corrected from text-align to margin */
+    overflow-x: auto; /* Ensure horizontal scrolling is enabled */
+    width: 100%; /* Ensure it takes up the full width */
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+.explore-menu-list::-webkit-scrollbar {
+    display: none;
+}
+
+.explore-menu-list-item {
+    display: inline-block; /* Ensure items are inline-block to respect white-space: nowrap */
+    min-width: 150px; /* Ensure items have a minimum width to enable scrolling */
+    margin-right: 10px; /* Add spacing between items */
+    text-align: center; /* Center align text */
+}
+
+.explore-menu-list-item img {
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Ensure height is the same as width */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 50%; /* Make the image circular */
+}
+.explore-menu-list-item p{
+    margin-top:10px;
+    color:gray;
+    font-size:max(1.4vw,16px);
+    cursor:pointer;
+}
+.explore-menu hr{
+    margin:10px 0px;
+    height:2px;
+    background-color:white;
+    border:none;
+}
+.explore-menu-list-itemn .active {
+    border: 4px solid tomato;
+    padding: 2px;
+}
+
+@media(max-width:1050px){
+    .explore-menu-text{
+        max-width:100%;
+        font-size:14px;
+    }
+}

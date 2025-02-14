@@ -1,0 +1,108 @@
+/* Container for the entire orders page */
+.order {
+    padding: 20px;
+    background-color: #f9f9f9;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Title of the page */
+  .order h3 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Container for the list of orders */
+  .order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Individual order item styling */
+  .order-item {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+  
+  /* Flexbox for aligning items */
+  .order-item img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  
+  /* Order item food text */
+  .order-item-food {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  /* Customer name styling */
+  .order-item-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Address block styling */
+  .order-item-address {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 10px;
+  }
+  
+  /* Phone number styling */
+  .order-item-phone {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  /* Additional information about items and status */
+  .order-item p {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  /* Select dropdown styling */
+  .order-item select {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .order-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .order-item img {
+      width: 30px;
+      height: 30px;
+    }
+  
+    .order-item-food, 
+    .order-item-name, 
+    .order-item-address, 
+    .order-item-phone, 
+    .order-item p {
+      font-size: 0.8rem;
+    }
+  }
+  
