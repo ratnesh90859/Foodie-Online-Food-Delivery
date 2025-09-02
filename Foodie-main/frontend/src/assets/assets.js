@@ -10,6 +10,8 @@ import menu_5 from './menu_5.png';
 import menu_6 from './menu_6.png';
 import menu_7 from './menu_7.png';
 import menu_8 from './menu_8.png';
+
+
 import food_1 from './food_1.png';
 import food_2 from './food_2.png';
 import food_3 from './food_3.png';
@@ -42,6 +44,8 @@ import food_29 from './food_29.png';
 import food_30 from './food_30.png';
 import food_31 from './food_31.png';
 import food_32 from './food_32.png';
+
+
 import add_icon_white from './add_icon_white.png';
 import add_icon_green from './add_icon_green.png';
 import remove_icon_red from './remove_icon_red.png';
