@@ -5,8 +5,8 @@ dotenv.config();
 
 const authMiddleware = (req, res, next) => {
     const token = req.headers.token;
-    console.log('JWT_SECRET during token verification:', process.env.JWT_SECRET);
-    console.log('Token received:', token);
+    //console.log('JWT_SECRET during token verification:', process.env.JWT_SECRET);
+    //console.log('Token received:', token);
 
     if (!token) {
         return res.status(401).json({ success: false, message: "Not Authorized. Login Again" });

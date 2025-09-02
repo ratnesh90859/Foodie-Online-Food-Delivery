@@ -9,18 +9,14 @@ import orderRouter from "./routes/orderRoute.js";
 dotenv.config();
 
 
-// App config
 const app = express();
 const port = 4000;
 
-// Middleware
 app.use(express.json());
 app.use(cors());
 
-// DB connection
 connectDB();
 
-// API endpoints
 app.use("/api/food", foodRouter);
 app.use("/images", express.static('uploads'));
 app.use("/api/user", userRouter);
@@ -33,6 +29,6 @@ app.get("/", (req, res) => {
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
-    console.log('JWT_SECRET:', process.env.JWT_SECRET); // Verify the secret is loaded
+    //console.log('JWT_SECRET:', process.env.JWT_SECRET); // Verify the secret is loaded
     //console.log('Environment Variables:', process.env);
 });
