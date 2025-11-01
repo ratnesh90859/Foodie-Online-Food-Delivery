@@ -1,0 +1,26 @@
+# Backend Development Dockerfile
+FROM node:18-alpine
+
+# Install curl for health checks
+RUN apk add --no-cache curl
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies including nodemon
+RUN npm install
+
+# Create uploads directory
+RUN mkdir -p uploads && chown -R node:node uploads
+
+# Switch to non-root user
+USER node
+
+# Expose port
+EXPOSE 4000
+
+# Start with nodemon for hot reload
+CMD ["npm", "run", "server"]

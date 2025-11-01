@@ -1,0 +1,90 @@
+# Development Docker Compose
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: foodie-mongodb-dev
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+      MONGO_INITDB_DATABASE: foodie
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_dev_data:/data/db
+    networks:
+      - foodie-dev-network
+
+  # Backend API (Development with hot reload)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: foodie-backend-dev
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=development
+      - PORT=4000
+      - MONGODB_URI=mongodb://admin:admin123@mongodb:27017/foodie?authSource=admin
+      - JWT_SECRET=dev-jwt-secret-key
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+      - uploads_dev_data:/app/uploads
+    depends_on:
+      - mongodb
+    networks:
+      - foodie-dev-network
+
+  # Frontend Application (Development with hot reload)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: foodie-frontend-dev
+    restart: unless-stopped
+    environment:
+      - VITE_API_URL=http://localhost:4000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - foodie-dev-network
+
+  # Admin Panel (Development with hot reload)
+  admin:
+    build:
+      context: ./admin
+      dockerfile: Dockerfile.dev
+    container_name: foodie-admin-dev
+    restart: unless-stopped
+    environment:
+      - VITE_API_URL=http://localhost:4000
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./admin:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - foodie-dev-network
+
+volumes:
+  mongodb_dev_data:
+    driver: local
+  uploads_dev_data:
+    driver: local
+
+networks:
+  foodie-dev-network:
+    driver: bridge
